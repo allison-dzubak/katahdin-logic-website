@@ -19,6 +19,7 @@
             --dark-green: #1F4E3D;
             --brown: #8B4513;
             --light-tan: #F5F1E8;
+            --accent-green: #6B8E6B;
         }
 
         body {
@@ -131,18 +132,18 @@
             margin-bottom: 16px;
         }
 
-        /* Featured Project Section */
-        .featured-project {
+        /* Featured Work Section */
+        .featured-work {
             background: var(--light-tan);
             padding: 80px 0;
         }
 
-        .project-header {
+        .featured-header {
             text-align: center;
             margin-bottom: 48px;
         }
 
-        .project-title {
+        .featured-title {
             font-size: 2.5rem;
             font-weight: 300;
             color: var(--black);
@@ -150,91 +151,105 @@
             letter-spacing: -0.5px;
         }
 
-        .project-subtitle {
-            font-size: 1.1rem;
-            color: var(--gray);
+        /* Project Cards Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .project-card {
             background: var(--white);
             border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            overflow: hidden;
+            padding: 0 24px;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            border: 2px solid var(--black);
+        }
+
+        .project-info {
+            padding: 24px 24px 16px 24px;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-name {
-            font-size: 1.8rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: var(--black);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
         .project-description {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 32px;
+            line-height: 1.6;
+            margin-bottom: 16px;
         }
 
-        .tech-stack {
-            margin-bottom: 32px;
-        }
-
-        .tech-label {
-            font-weight: 600;
-            color: var(--black);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .tech-tags {
+        .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .tech-tag {
+        .project-tag {
             background: var(--light-tan);
             color: var(--black);
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
-        .project-highlights {
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            padding-top: 24px;
+        .project-footer {
+            padding: 16px 24px 24px 24px;
         }
 
-        .highlight-label {
-            font-weight: 600;
-            color: var(--black);
-            margin-bottom: 12px;
-            display: block;
+        .project-footer .project-tags {
+            margin-bottom: 16px;
         }
 
-        .highlight-list {
-            list-style: none;
-            padding: 0;
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: gap 0.2s ease;
         }
 
-        .highlight-list li {
-            padding-left: 24px;
-            position: relative;
-            margin-bottom: 8px;
-            color: var(--gray);
-            line-height: 1.6;
+        .project-link:hover {
+            gap: 10px;
         }
 
-        .highlight-list li:before {
+        .project-link::after {
             content: "→";
-            position: absolute;
-            left: 0;
-            color: #6B8E6B;
-            font-weight: bold;
         }
 
         /* Services Section */
@@ -376,16 +391,20 @@
                 gap: 20px;
             }
 
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
 
-            .service-card, .project-card {
+            .service-card {
                 padding: 32px 24px;
             }
 
-            .services-title, .project-title, .contact-title {
+            .services-title, .featured-title, .contact-title {
                 font-size: 2rem;
             }
 
@@ -393,12 +412,8 @@
                 padding: 0 16px;
             }
 
-            .header-banner, .about-section, .featured-project, main, .contact-section {
+            .header-banner, .about-section, .featured-work, main, .contact-section {
                 padding: 50px 0;
-            }
-
-            .tech-tags {
-                font-size: 0.8rem;
             }
         }
 
@@ -407,8 +422,12 @@
                 font-size: 1rem;
             }
 
-            .about-title, .services-title, .project-title, .contact-title {
+            .about-title, .services-title, .featured-title, .contact-title {
                 font-size: 1.6rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -468,47 +487,41 @@
         </div>
     </section>
 
-    <!-- Featured Project -->
-    <section class="featured-project">
+    <!-- Featured Work -->
+    <section class="featured-work" id="featured-work">
         <div class="container">
-            <div class="project-header">
-                <h2 class="project-title">Featured Work</h2>
-<!--                <p class="project-subtitle">Real-world systems built for real impact</p>-->
+            <div class="featured-header">
+                <h2 class="featured-title">Featured Work</h2>
             </div>
 
-            <div class="project-card">
-                <h3 class="project-name">Legislative Transparency Platform</h3>
-                <p class="project-description">
-                    A comprehensive full-stack application that automates Congressional bill tracking with AI-powered
-                    summaries, making legislative information accessible for civic engagement initiatives. The system
-                    processes thousands of bills daily, generating intelligent summaries and enabling quality assurance
-                    through expert feedback collection.
-                </p>
-
-                <div class="tech-stack">
-                    <span class="tech-label">Technologies Used</span>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">SQLAlchemy</span>
-                        <span class="tech-tag">Claude API</span>
-                        <span class="tech-tag">Congress.gov API</span>
-                        <span class="tech-tag">Railway</span>
-                        <span class="tech-tag">REST APIs</span>
+            <div class="projects-grid">
+                <!-- Legislative Transparency Platform -->
+                <article class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-name">Legislative Transparency Platform</h3>
+                        <p class="project-description">
+                            Automated Congressional bill tracking with AI-powered summaries for civic engagement.
+                        </p>
                     </div>
-                </div>
+                    <div class="project-thumbnail">
+                        <img src="/static/CM-summary-card.png" alt="Legislative Transparency Platform screenshot showing AI-generated bill summary">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Flask</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">SQLAlchemy</span>
+                            <span class="project-tag">Claude API</span>
+                            <span class="project-tag">Congress.gov API</span>
+                            <span class="project-tag">Railway</span>
+                        </div>
+                        <a href="/projects/legislative-platform.html" class="project-link">Learn more</a>
+                    </div>
+                </article>
 
-                <div class="project-highlights">
-                    <span class="highlight-label">Key Features</span>
-                    <ul class="highlight-list">
-                        <li>Automated daily data ingestion from Congress.gov API with action-type filtering</li>
-                        <li>AI-powered bill summarization using Claude API with two-tier content formatting</li>
-                        <li>Complex database schema managing thousands of legislative records with full relationship modeling</li>
-                        <li>Quality assurance pipeline with multi-dimensional expert feedback for continuous AI optimization</li>
-                        <li>Admin dashboards for API usage tracking and cost monitoring</li>
-                    </ul>
-                </div>
+                <!-- Add more project cards here -->
+
             </div>
         </div>
     </section>

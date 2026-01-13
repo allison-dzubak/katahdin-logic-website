@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legislative Transparency Platform - Katahdin Logic LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --tan: #D2B48C;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --gray: #6B7280;
+            --dark-green: #1F4E3D;
+            --brown: #8B4513;
+            --light-tan: #F5F1E8;
+            --accent-green: #6B8E6B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Back Navigation */
+        .back-nav {
+            background: var(--light-tan);
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--black);
+        }
+
+        .back-link::before {
+            content: "←";
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--light-tan);
+            padding: 60px 0 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .project-tagline {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .live-site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: gap 0.2s ease;
+        }
+
+        .live-site-link:hover {
+            gap: 12px;
+        }
+
+        .live-site-link::after {
+            content: "→";
+        }
+
+        /* Main Content */
+        .content {
+            padding: 60px 0;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .section-text {
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .section-text + .section-text {
+            margin-top: 16px;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 12px;
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Screenshots */
+        .screenshots {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .screenshot {
+            background: var(--white);
+        }
+
+        .screenshot img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            border: 2px solid var(--black);
+            margin: 0 auto;
+        }
+
+        .screenshot-caption {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tech-item {
+            background: var(--light-tan);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--black);
+        }
+
+        /* Technical Details */
+        .technical-details {
+            background: var(--light-tan);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .technical-details .section-title {
+            margin-bottom: 16px;
+        }
+
+        .technical-details .section-text {
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--light-tan);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .cta-text {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button.primary {
+            background: var(--accent-green);
+            color: var(--white);
+        }
+
+        .cta-button.primary:hover {
+            background: #5a7a5a;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button.secondary:hover {
+            border-color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 40px 0 60px;
+            }
+
+            .content {
+                padding: 40px 0;
+            }
+
+            .section {
+                margin-bottom: 36px;
+            }
+
+            .technical-details {
+                padding: 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Navigation -->
+    <nav class="back-nav">
+        <div class="container">
+            <a href="/" class="back-link">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="project-title">Legislative Transparency Platform</h1>
+                <p class="project-tagline">
+                    Automated Congressional bill tracking with AI-powered summaries, making legislative information accessible for civic engagement.
+                </p>
+                <a href="https://app.becivicminded.com/" target="_blank" rel="noopener noreferrer" class="live-site-link">
+                    View Live Site
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="container">
+
+            <!-- The Problem -->
+            <section class="section">
+                <h2 class="section-title">The Problem</h2>
+                <p class="section-text">
+                    Congressional bills are dense legal documents that most people don't have time to read or interpret. Civic engagement organizations need digestible summaries to inform their communities about legislation that affects them, but manual summarization doesn't scale when Congress introduces hundreds of bills each week.
+                </p>
+            </section>
+
+            <!-- The Solution -->
+            <section class="section">
+                <h2 class="section-title">The Solution</h2>
+                <p class="section-text">
+                    A full-stack application that automates the entire pipeline: ingesting bills daily from Congress.gov, generating AI-powered summaries via Claude API, and presenting them in an accessible public interface organized by legislative status. The system processes thousands of bills while maintaining quality through a structured feedback loop with AI-summary reviewers.
+                </p>
+            </section>
+
+            <!-- Key Features -->
+            <section class="section">
+                <h2 class="section-title">Key Features</h2>
+                <ul class="feature-list">
+                    <li>Automated daily data ingestion from Congress.gov API with intelligent filtering by action type</li>
+                    <li>AI-powered bill summarization with two-tier format: concise summary plus detailed breakdown</li>
+                    <li>Bills organized by legislative status: introduced, in committee, floor activity, sent to president</li>
+                    <li>Quality assurance pipeline with multi-dimensional reviewer feedback for continuous AI improvement</li>
+                    <li>Admin dashboards for API usage tracking and cost monitoring</li>
+                    <li>Direct links to original bill text on Congress.gov for verification</li>
+                </ul>
+            </section>
+
+            <!-- Screenshots -->
+            <section class="section">
+                <h2 class="section-title">Screenshots</h2>
+                <div class="screenshots">
+                    <figure class="screenshot">
+                        <img src="/static/CM-stats-banner.png" alt="Stats banner showing 273 total bills and 81 with summaries, with collapsed category headers">
+                        <figcaption class="screenshot-caption">
+                            Dashboard overview showing bill volume and organization by legislative status
+                        </figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/static/CM-expanded-summary.png" alt="Expanded bill summary for the National Prescribed Fire Act showing main summary and additional details">
+                        <figcaption class="screenshot-caption">
+                            AI-generated summary with two-tier format: main points and expandable details
+                        </figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/static/CM-multiple-cards.png" alt="Multiple bill cards showing variety of legislation topics">
+                        <figcaption class="screenshot-caption">
+                            Multiple bills displayed with summaries across different policy areas
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- Technical Approach -->
+            <section class="section">
+                <div class="technical-details">
+                    <h2 class="section-title">Technical Approach</h2>
+                    <p class="section-text">
+                        The platform runs on Flask with a PostgreSQL database, deployed on Railway with automated scheduled jobs for daily ingestion. Key architectural decisions included designing a two-tier summary format to balance accessibility with depth, implementing rate limiting and retry logic for reliable API interactions, and building a feedback system that captures reviewer assessments across multiple quality dimensions. Cost monitoring was built in from the start to track Claude API usage and ensure sustainable operation at scale.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Technologies -->
+            <section class="section">
+                <h2 class="section-title">Technologies Used</h2>
+                <div class="tech-grid">
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">Flask</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">SQLAlchemy</span>
+                    <span class="tech-item">Claude API</span>
+                    <span class="tech-item">Congress.gov API</span>
+                    <span class="tech-item">Railway</span>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Interested in Similar Work?</h2>
+                <p class="cta-text">
+                    I build AI-powered applications with a focus on practical value and sustainable operations.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://www.linkedin.com/in/allisondzubak/" target="_blank" rel="noopener noreferrer" class="cta-button primary">
+                        Get in Touch
+                    </a>
+                    <a href="/#featured-work" class="cta-button secondary">
+                        View All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Katahdin Logic LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
