@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katahdin Logic LLC - Technical Consulting & Full-Stack Development</title>
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
     <style>
         * {
             margin: 0;
@@ -55,43 +57,58 @@
             align-items: center;
             justify-content: center;
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
         }
 
         .logo {
             width: 100%;
+            max-width: 900px;
             display: block;
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
         }
 
         .logo-image {
             width: 100%;
+            max-height: 65vh;
             height: auto;
             display: block;
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
+            object-fit: contain;
         }
 
         .taglines {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            gap: 12px;
+            gap: 0;
             max-width: 800px;
             margin: 0 auto;
             width: 100%;
-            font-size: 1.2rem;
+            font-size: 0.85rem;
             font-weight: 400;
-            font-style: italic;
+            font-style: normal;
             color: var(--gray);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .taglines span {
+            padding: 0 16px;
+        }
+
+        .tagline-separator {
+            color: var(--accent-green);
+            font-size: 0.6rem;
+            opacity: 0.7;
+            padding: 0 !important;
         }
 
         .tagline-1 {
             text-align: center;
-            align-self: flex-start;
-            margin-left: 20%;
         }
 
         .tagline-2 {
@@ -100,8 +117,6 @@
 
         .tagline-3 {
             text-align: center;
-            align-self: flex-end;
-            margin-right: 20%;
         }
 
         /* About Section */
@@ -391,6 +406,11 @@
                 gap: 20px;
             }
 
+            .taglines {
+                font-size: 0.75rem;
+                letter-spacing: 0.14em;
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -419,7 +439,14 @@
 
         @media (max-width: 480px) {
             .taglines {
-                font-size: 1rem;
+                font-size: 0.7rem;
+                letter-spacing: 0.12em;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .tagline-separator {
+                display: none;
             }
 
             .about-title, .services-title, .featured-title, .contact-title {
@@ -463,7 +490,9 @@
                     </div>
                     <div class="taglines">
                         <span class="tagline-1">Elevated solutions</span>
+                        <span class="tagline-separator">·</span>
                         <span class="tagline-2">Grounded intelligence</span>
+                        <span class="tagline-separator">·</span>
                         <span class="tagline-3">Thoughtfully rooted</span>
                     </div>
                 </div>
