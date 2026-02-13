@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legislative Transparency Platform - Katahdin Logic LLC</title>
+    <title>Solar Energy Intelligence - Katahdin Logic LLC</title>
     <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
     <link rel="icon" type="image/png" href="/static/favicon.png">
     <style>
@@ -59,7 +59,7 @@
         }
 
         .back-link::before {
-            content: "←";
+            content: "\2190";
         }
 
         /* Hero Section */
@@ -105,7 +105,7 @@
         }
 
         .live-site-link::after {
-            content: "→";
+            content: "\2192";
         }
 
         /* Main Content */
@@ -154,7 +154,7 @@
         }
 
         .feature-list li::before {
-            content: "→";
+            content: "\2192";
             position: absolute;
             left: 0;
             color: var(--accent-green);
@@ -355,12 +355,12 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="project-title">Legislative Transparency Platform</h1>
+                <h1 class="project-title">Solar Energy Intelligence</h1>
                 <p class="project-tagline">
-                    Automated Congressional bill tracking with AI-powered summaries, making legislative information accessible for civic engagement.
+                    Real-time solar monitoring with automated data collection, credit tracking, and rate plan optimization for residential systems.
                 </p>
-                <a href="https://app.becivicminded.com/" target="_blank" rel="noopener noreferrer" class="live-site-link">
-                    View Live Site
+                <a href="https://solar.katahdinlogic.com/" target="_blank" rel="noopener noreferrer" class="live-site-link">
+                    View Live Dashboard
                 </a>
             </div>
         </div>
@@ -374,7 +374,7 @@
             <section class="section">
                 <h2 class="section-title">The Problem</h2>
                 <p class="section-text">
-                    Congressional bills are dense legal documents that most people don't have time to read or interpret. Civic engagement organizations need digestible summaries to inform their communities about legislation that affects them, but manual summarization doesn't scale when Congress introduces hundreds of bills each week.
+                    Residential solar involves two systems: the solar company tracks what your panels produce and what your home consumes, while the utility manages billing, rate structures, and net metering credit policies. Understanding the full financial picture requires combining data from both sides: production patterns from SolarEdge, credit expiration rules from Maine's net energy billing program, and the pricing logic behind each of CMP's rate plans. Without this integration, it's difficult for homeowners to answer basic questions like whether they're on the optimal rate plan or how close they are to paying off their system.
                 </p>
             </section>
 
@@ -382,7 +382,7 @@
             <section class="section">
                 <h2 class="section-title">The Solution</h2>
                 <p class="section-text">
-                    A full-stack application that automates the entire pipeline: ingesting bills daily from Congress.gov, generating AI-powered summaries via Claude API, and presenting them in an accessible public interface organized by legislative status. The system processes thousands of bills while maintaining quality through a structured feedback loop with AI-summary reviewers.
+                    An automated monitoring dashboard that ingests production and consumption data every 15 minutes from the SolarEdge API, combines it with utility billing data, and presents a comprehensive financial picture. The system tracks net metering credits under Maine's 12-month expiration policy, models bill scenarios across three CMP rate plans, and calculates real-time ROI progress toward system payback.
                 </p>
             </section>
 
@@ -390,12 +390,11 @@
             <section class="section">
                 <h2 class="section-title">Key Features</h2>
                 <ul class="feature-list">
-                    <li>Automated daily data ingestion from Congress.gov API with intelligent filtering by action type</li>
-                    <li>AI-powered bill summarization with two-tier format: concise summary plus detailed breakdown</li>
-                    <li>Bills organized by legislative status: introduced, in committee, floor activity, sent to president</li>
-                    <li>Quality assurance pipeline with multi-dimensional reviewer feedback for continuous AI improvement</li>
-                    <li>Admin dashboards for API usage tracking and cost monitoring</li>
-                    <li>Direct links to original bill text on Congress.gov for verification</li>
+                    <li>Automated data collection every 15 minutes via SolarEdge API with Raspberry Pi orchestration</li>
+                    <li>Interactive energy charts with toggleable production, consumption, and net energy views across daily, weekly, and monthly timeframes</li>
+                    <li>Net metering credit tracking with FIFO expiration logic matching Maine's 12-month NEB policy</li>
+                    <li>Rate plan comparison modeling monthly bills across CMP Rate A, Electric Technology, and Time-of-Use plans</li>
+                    <li>ROI progress visualization showing federal tax credits, cumulative bill savings, and projected payback timeline</li>
                 </ul>
             </section>
 
@@ -404,21 +403,21 @@
                 <h2 class="section-title">Screenshots</h2>
                 <div class="screenshots">
                     <figure class="screenshot">
-                        <img src="/static/CM-browse.png" alt="Bill tracker showing stats banner and legislative status categories">
+                        <img src="/static/solar-monitor.png" alt="Dashboard showing real-time energy production and consumption data with interactive time range controls">
                         <figcaption class="screenshot-caption">
-                            Bills organized by legislative status with real-time counts
+                            Real-time monitoring with production and consumption data updated every 15 minutes
                         </figcaption>
                     </figure>
                     <figure class="screenshot">
-                        <img src="/static/CM-summary.png" alt="AI-generated bill summary with expandable details">
+                        <img src="/static/solar-savings.png" alt="Savings tracker showing net metering credit balance, cumulative savings, and ROI progress bar">
                         <figcaption class="screenshot-caption">
-                            AI-generated summary with two-tier format: key points and expandable details
+                            Credit tracking and ROI analysis showing financial impact over time
                         </figcaption>
                     </figure>
                     <figure class="screenshot">
-                        <img src="/static/CM-cards.png" alt="Multiple bill cards showing diverse policy areas">
+                        <img src="/static/solar-rates.png" alt="Rate plan comparison showing modeled monthly bills across three CMP rate structures">
                         <figcaption class="screenshot-caption">
-                            Multiple bills processed automatically across diverse policy areas
+                            Rate optimization comparing monthly costs across three CMP rate plans
                         </figcaption>
                     </figure>
                 </div>
@@ -429,7 +428,7 @@
                 <div class="technical-details">
                     <h2 class="section-title">Technical Approach</h2>
                     <p class="section-text">
-                        The platform runs on Flask with a PostgreSQL database, deployed on Railway with automated scheduled jobs for daily ingestion. Key architectural decisions included designing a two-tier summary format to balance accessibility with depth, implementing rate limiting and retry logic for reliable API interactions, and building a feedback system that captures reviewer assessments across multiple quality dimensions. Cost monitoring was built in from the start to track Claude API usage and ensure sustainable operation at scale.
+                        The dashboard ingests 15-minute interval data from the SolarEdge API and combines it with monthly utility billing records to model energy costs across three CMP rate structures. Provides real-time monitoring of household energy flow, pattern analysis that reveals how consumption and generation shift across hours, days, seasons, and weather conditions, and rate plan optimization that uses those patterns to identify the most cost-effective CMP rate structure. Credit tracking implements FIFO queue logic to match Maine's 12-month rolling expiration policy, helping homeowners see when they're consistently generating more than they use and could benefit from adopting additional electric technology like heat pumps or EV charging.
                     </p>
                 </div>
             </section>
@@ -438,13 +437,12 @@
             <section class="section">
                 <h2 class="section-title">Technologies Used</h2>
                 <div class="tech-grid">
-                    <span class="tech-item">Python</span>
-                    <span class="tech-item">Flask</span>
-                    <span class="tech-item">PostgreSQL</span>
-                    <span class="tech-item">SQLAlchemy</span>
-                    <span class="tech-item">Claude API</span>
-                    <span class="tech-item">Congress.gov API</span>
-                    <span class="tech-item">Railway</span>
+                    <span class="tech-item">API Integration</span>
+                    <span class="tech-item">Financial Modeling</span>
+                    <span class="tech-item">Real-Time Data</span>
+                    <span class="tech-item">Trend Analysis</span>
+                    <span class="tech-item">Plotly.js</span>
+                    <span class="tech-item">Netlify</span>
                 </div>
             </section>
 
@@ -457,7 +455,7 @@
             <div class="cta-content">
                 <h2 class="cta-title">Interested in Similar Work?</h2>
                 <p class="cta-text">
-                    We build AI-powered applications with a focus on practical value and sustainable operations.
+                    We build data dashboards and automated pipelines that turn raw data into clear, actionable insights.
                 </p>
                 <div class="cta-buttons">
                     <a href="https://www.linkedin.com/in/allisondzubak/" target="_blank" rel="noopener noreferrer" class="cta-button primary">
