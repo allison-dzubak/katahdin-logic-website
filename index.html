@@ -3,512 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katahdin Logic LLC - AI + Data Systems for Mission-Driven Organizations</title>
+    <title>Katahdin Logic LLC: Intelligent Data Systems for Mission-Driven Organizations</title>
+    <meta name="description" content="Intelligent data systems and AI solutions for mission-driven organizations. Katahdin Logic LLC, Portland, Maine.">
+
+    <!-- Favicon: SVG first (sharp at any DPI), ICO as fallback for older browsers -->
     <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
-    <link rel="icon" type="image/png" href="/static/favicon.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --tan: #D2B48C;
-            --white: #FFFFFF;
-            --black: #1A1A1A;
-            --gray: #6B7280;
-            --dark-green: #1F4E3D;
-            --brown: #8B4513;
-            --light-tan: #F5F1E8;
-            --accent-green: #6B8E6B;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background-color: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header Banner */
-        .header-banner {
-            background: var(--light-tan);
-            color: var(--black);
-            padding: 60px 0 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .logo-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            width: 100%;
-            max-width: 900px;
-            display: block;
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        .logo-image {
-            width: 100%;
-            max-height: 65vh;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            padding: 0;
-            object-fit: contain;
-        }
-
-        .taglines {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            gap: 0;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-            font-size: 0.85rem;
-            font-weight: 400;
-            font-style: normal;
-            color: var(--gray);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .taglines span {
-            padding: 0 16px;
-        }
-
-        .tagline-separator {
-            color: var(--accent-green);
-            font-size: 0.6rem;
-            opacity: 0.7;
-            padding: 0 !important;
-        }
-
-        .tagline-1 {
-            text-align: center;
-        }
-
-        .tagline-2 {
-            text-align: center;
-        }
-
-        .tagline-3 {
-            text-align: center;
-        }
-
-        /* About Section */
-        .about-section {
-            background: var(--white);
-            padding: 60px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-title {
-            font-size: 2rem;
-            font-weight: 300;
-            color: var(--black);
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-        }
-
-        .about-text {
-            font-size: 1.05rem;
-            color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        /* Featured Work Section */
-        .featured-work {
-            background: var(--light-tan);
-            padding: 80px 0;
-        }
-
-        .featured-header {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .featured-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--black);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        /* Project Cards Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .project-thumbnail {
-            width: 100%;
-            overflow: hidden;
-            padding: 0 24px;
-            height: 260px;
-            position: relative;
-        }
-
-        .project-thumbnail img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            border-radius: 12px;
-            border: 2px solid var(--black);
-            object-fit: cover;
-            object-position: top;
-        }
-
-        .project-thumbnail::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 24px;
-            right: 24px;
-            height: 50px;
-            background: linear-gradient(transparent, rgba(255, 255, 255, 0.9));
-            pointer-events: none;
-            z-index: 1;
-            border-radius: 0 0 12px 12px;
-        }
-
-        .project-info {
-            padding: 24px 24px 16px 24px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--black);
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .project-description {
-            font-size: 0.95rem;
-            color: var(--gray);
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .project-tag {
-            background: var(--light-tan);
-            color: var(--black);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .project-footer {
-            padding: 16px 24px 24px 24px;
-        }
-
-        .project-footer .project-tags {
-            margin-bottom: 16px;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--accent-green);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: gap 0.2s ease;
-        }
-
-        .project-link:hover {
-            gap: 10px;
-        }
-
-        .project-link::after {
-            content: "→";
-        }
-
-        /* Services Section */
-        main {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .services-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .services-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--black);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .services-subtitle {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            margin-top: 60px;
-        }
-
-        .service-card {
-            background: var(--light-tan);
-            border-radius: 12px;
-            padding: 40px 32px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(31, 78, 61, 0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .service-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--black);
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .service-description {
-            color: var(--gray);
-            line-height: 1.7;
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-        }
-
-        .service-examples {
-            font-size: 0.85rem;
-            color: #6B8E6B;
-            font-style: italic;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--light-tan);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--black);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .contact-description {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .linkedin-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: #6B8E6B;
-            color: var(--white);
-            text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(107, 142, 107, 0.2);
-        }
-
-        .linkedin-button:hover {
-            background: #9BB894;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(107, 142, 107, 0.3);
-        }
-
-        .linkedin-icon {
-            flex-shrink: 0;
-        }
-
-        footer {
-            background: var(--black);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .footer-content {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        .footer-founder {
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s ease;
-        }
-
-        .footer-founder:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .logo-section {
-                gap: 20px;
-            }
-
-            .taglines {
-                font-size: 0.75rem;
-                letter-spacing: 0.14em;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .service-card {
-                padding: 32px 24px;
-            }
-
-            .services-title, .featured-title, .contact-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            .header-banner, .about-section, .featured-work, main, .contact-section {
-                padding: 50px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .taglines {
-                font-size: 0.7rem;
-                letter-spacing: 0.12em;
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .tagline-separator {
-                display: none;
-            }
-
-            .about-title, .services-title, .featured-title, .contact-title {
-                font-size: 1.6rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-    </style>
+    <link rel="icon" href="/static/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+
+    <!-- =========================================
+         Navbar
+         ========================================= -->
+    <nav class="navbar" id="site-navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a class="navbar-brand" href="/">Katahdin Logic</a>
+
+                <ul class="navbar-links" id="desktop-nav">
+                    <li><a href="#featured-work">Work</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="navbar-mobile" id="mobile-nav" aria-hidden="true">
+            <a href="#featured-work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </nav>
+
+
+    <!-- =========================================
+         Header Banner
+         ========================================= -->
     <header class="header-banner">
         <div class="container">
             <div class="header-content">
@@ -517,92 +58,216 @@
                         <img src="/static/logo.png" alt="Katahdin Logic LLC Logo" class="logo-image">
                     </div>
                     <div class="taglines">
-                        <span class="tagline-1">Elevated solutions</span>
+                        <span>Elevated solutions</span>
                         <span class="tagline-separator">·</span>
-                        <span class="tagline-2">Grounded intelligence</span>
+                        <span>Grounded intelligence</span>
                         <span class="tagline-separator">·</span>
-                        <span class="tagline-3">Thoughtfully rooted</span>
+                        <span>Thoughtfully rooted</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section class="about-section">
+
+    <!-- =========================================
+         About Section
+         ========================================= -->
+    <section class="about-section" id="about">
         <div class="container">
             <div class="about-content">
-                <h2 class="about-title">AI + Data Systems for Mission-Driven Organizations</h2>
+                <h2 class="about-title">Intelligent Data Systems for Mission-Driven Organizations</h2>
                 <p class="about-text">
-                    We turn complex data challenges into working systems: Automated pipelines, AI-powered document processing, custom dashboards, and integrations that connect your tools. If you have messy data, manual processes, or information locked in documents, we can help.
+                    We turn complex data challenges into working systems: automated pipelines, AI-powered document
+                    processing, custom dashboards, and integrations that connect your tools. If you have messy data,
+                    manual processes, or information locked in documents, we can help.
+                </p>
+                <p class="about-text">
+                    Founded in Portland, Maine by <a href="https://allisondzubak.com" target="_blank" rel="noopener noreferrer" class="about-link">Allison Dzubak, Ph.D.</a>, Katahdin Logic brings research-grade
+                    analytical thinking to the practical data challenges facing local and mission-driven organizations.
+                    We work closely with clients to build systems that are reliable, maintainable, and built to grow
+                    with your organization.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Featured Work -->
+
+    <!-- =========================================
+         Featured Work
+         ========================================= -->
     <section class="featured-work" id="featured-work">
         <div class="container">
             <div class="featured-header">
                 <h2 class="featured-title">Featured Work</h2>
             </div>
 
-            <div class="projects-grid">
-                <!-- Legislative Transparency Platform -->
-                <article class="project-card">
-                    <div class="project-info">
-                        <h3 class="project-name">Legislative Transparency Platform</h3>
-                        <p class="project-description">
-                            A civic engagement tool that automates Congressional bill tracking with AI-powered summaries, making legislative activity accessible and understandable.
+            <!-- ---- Project 1: Legislative Transparency Platform ---- -->
+            <article class="showcase-card">
+                <div class="showcase-header">
+                    <div class="showcase-title-row">
+                        <h3 class="showcase-title">
+                            <a href="/projects/legislative-platform.html" class="showcase-title-link">Legislative Transparency Platform</a>
+                        </h3>
+                        <span class="showcase-badge">Live</span>
+                    </div>
+                    <p class="showcase-description">
+                        A civic engagement tool that automates Congressional bill tracking with AI-powered summaries,
+                        making legislative activity accessible and understandable. Bills are ingested daily from
+                        Congress.gov, summarized by Claude API, and surfaced through a clean public interface.
+                    </p>
+                </div>
+
+                <div class="showcase-gallery">
+                    <div class="showcase-thumb" onclick="openShowcaseModal(this)">
+                        <div class="thumb-img-wrap">
+                            <img src="/static/CM-browse.png" alt="Bill tracker showing stats banner and legislative status categories">
+                        </div>
+                        <div class="thumb-label">Browse by Status</div>
+                        <div class="thumb-overlay">
+                            <p>Bills organized by legislative status with real-time counts, from introduction through committee to floor votes and signing.</p>
+                        </div>
+                    </div>
+
+                    <div class="showcase-thumb" onclick="openShowcaseModal(this)">
+                        <div class="thumb-img-wrap">
+                            <img src="/static/CM-summary.png" alt="AI-generated bill summary with expandable details">
+                        </div>
+                        <div class="thumb-label">AI-Powered Summaries</div>
+                        <div class="thumb-overlay">
+                            <p>Claude API generates two-tier summaries: key points at a glance plus expandable detail for deeper reading.</p>
+                        </div>
+                    </div>
+
+                    <div class="showcase-thumb" onclick="openShowcaseModal(this)">
+                        <div class="thumb-img-wrap">
+                            <img src="/static/CM-cards.png" alt="Multiple bill cards showing diverse policy areas">
+                        </div>
+                        <div class="thumb-label">From Congress.gov to Plain English</div>
+                        <div class="thumb-overlay">
+                            <p>Raw legislative data transformed into readable, searchable bill cards covering diverse policy areas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="behind-scenes">
+                    <button class="behind-scenes-toggle" type="button" aria-expanded="false">
+                        <span class="toggle-icon">&#9658;</span> Behind the build
+                    </button>
+                    <div class="behind-scenes-content">
+                        <p>
+                            The platform runs on Flask and PostgreSQL, deployed on Railway with scheduled jobs
+                            for daily bill ingestion from Congress.gov. Key design decisions included a two-tier
+                            summary format to balance accessibility with depth, rate limiting and retry logic
+                            for reliable API interactions, and a multi-dimensional reviewer feedback system
+                            so human oversight can continuously improve summary quality. API cost monitoring
+                            was built in from the start to track Claude API usage and ensure sustainable
+                            operation at scale.
                         </p>
                     </div>
-                    <div class="project-thumbnail">
-                        <img src="/static/CM-summary.png" alt="Legislative Transparency Platform screenshot showing AI-generated bill summary">
-                    </div>
-                    <div class="project-footer">
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Flask</span>
-                            <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">SQLAlchemy</span>
-                            <span class="project-tag">Claude API</span>
-                            <span class="project-tag">Congress.gov API</span>
-                            <span class="project-tag">Railway</span>
-                        </div>
-                        <a href="/projects/legislative-platform.html" class="project-link">Learn more</a>
-                    </div>
-                </article>
+                </div>
 
-                <!-- Solar Energy Intelligence Dashboard -->
-                <article class="project-card">
-                    <div class="project-info">
-                        <h3 class="project-name">Solar Energy Intelligence</h3>
-                        <p class="project-description">
-                            A real-time monitoring and rate optimization dashboard for residential solar, tracking production, consumption, credit balances, and ROI.
+                <div class="showcase-footer">
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Flask</span>
+                        <span class="project-tag">PostgreSQL</span>
+                        <span class="project-tag">SQLAlchemy</span>
+                        <span class="project-tag">Claude API</span>
+                        <span class="project-tag">Congress.gov API</span>
+                        <span class="project-tag">Railway</span>
+                    </div>
+                    <a href="/projects/legislative-platform.html" class="project-link">Learn more</a>
+                </div>
+            </article>
+
+
+            <!-- ---- Project 2: Solar Energy Intelligence ---- -->
+            <article class="showcase-card">
+                <div class="showcase-header">
+                    <div class="showcase-title-row">
+                        <h3 class="showcase-title">
+                            <a href="/projects/solar-energy-dashboard.html" class="showcase-title-link">Solar Energy Intelligence</a>
+                        </h3>
+                        <span class="showcase-badge">Live</span>
+                    </div>
+                    <p class="showcase-description">
+                        A real-time monitoring and rate optimization dashboard for residential solar, tracking
+                        production, consumption, credit balances, and projected ROI. Designed to scale across
+                        any residential installation, it bridges the gap between raw inverter data and the
+                        financial picture that homeowners care about.
+                    </p>
+                </div>
+
+                <div class="showcase-gallery">
+                    <div class="showcase-thumb" onclick="openShowcaseModal(this)">
+                        <div class="thumb-img-wrap">
+                            <img src="/static/solar-monitor.png" alt="Dashboard showing real-time energy production and consumption data">
+                        </div>
+                        <div class="thumb-label">Real-Time Monitoring</div>
+                        <div class="thumb-overlay">
+                            <p>Production and consumption data updated every 15 minutes from the SolarEdge API, with toggleable daily, weekly, and monthly views.</p>
+                        </div>
+                    </div>
+
+                    <div class="showcase-thumb" onclick="openShowcaseModal(this)">
+                        <div class="thumb-img-wrap">
+                            <img src="/static/solar-savings.png" alt="Savings tracker showing net metering credit balance, cumulative savings, and ROI progress bar">
+                        </div>
+                        <div class="thumb-label">Credit Tracking &amp; ROI</div>
+                        <div class="thumb-overlay">
+                            <p>Net metering credits tracked with FIFO expiration logic under Maine's 12-month NEB policy, alongside cumulative savings and payback progress.</p>
+                        </div>
+                    </div>
+
+                    <div class="showcase-thumb" onclick="openShowcaseModal(this)">
+                        <div class="thumb-img-wrap">
+                            <img src="/static/solar-rates.png" alt="Rate plan comparison showing modeled monthly bills across three CMP rate structures">
+                        </div>
+                        <div class="thumb-label">Rate Plan Optimization</div>
+                        <div class="thumb-overlay">
+                            <p>Monthly bill modeled across CMP's Rate A, Electric Technology, and Time-of-Use plans to identify the most cost-effective structure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="behind-scenes">
+                    <button class="behind-scenes-toggle" type="button" aria-expanded="false">
+                        <span class="toggle-icon">&#9658;</span> Behind the build
+                    </button>
+                    <div class="behind-scenes-content">
+                        <p>
+                            Automated 15-minute data collection from the SolarEdge API
+                            which is combined with utility billing records to model energy costs across three
+                            CMP rate structures. Credit tracking uses FIFO queue logic to match Maine's
+                            12-month rolling expiration policy under the Net Energy Billing program. The
+                            rate plan comparison reveals whether Rate A, Electric Technology, or Time-of-Use
+                            pricing is most favorable given a site's actual production and consumption patterns.
                         </p>
                     </div>
-                    <div class="project-thumbnail">
-                        <img src="/static/solar-monitor.png" alt="Solar energy dashboard showing real-time production and consumption data">
-                    </div>
-                    <div class="project-footer">
-                        <div class="project-tags">
-                            <span class="project-tag">API Integration</span>
-                            <span class="project-tag">Financial Modeling</span>
-                            <span class="project-tag">Real-Time Data</span>
-                            <span class="project-tag">Trend Analysis</span>
-                            <span class="project-tag">Plotly.js</span>
-                            <span class="project-tag">Netlify</span>
-                        </div>
-                        <a href="/projects/solar-energy-dashboard.html" class="project-link">Learn more</a>
-                    </div>
-                </article>
+                </div>
 
-            </div>
+                <div class="showcase-footer">
+                    <div class="project-tags">
+                        <span class="project-tag">API Integration</span>
+                        <span class="project-tag">Financial Modeling</span>
+                        <span class="project-tag">Real-Time Data</span>
+                        <span class="project-tag">Trend Analysis</span>
+                        <span class="project-tag">Plotly.js</span>
+                        <span class="project-tag">Netlify</span>
+                    </div>
+                    <a href="/projects/solar-energy-dashboard.html" class="project-link">Learn more</a>
+                </div>
+            </article>
+
         </div>
     </section>
 
-    <!-- Services -->
-    <main>
+
+    <!-- =========================================
+         Services
+         ========================================= -->
+    <main id="services">
         <div class="container">
             <div class="services-header">
                 <h2 class="services-title">Services</h2>
@@ -615,92 +280,208 @@
                 <div class="service-card fade-in">
                     <h3 class="service-title">AI Document Processing</h3>
                     <p class="service-description">
-                        Summarization, extraction, and classification powered by AI. Turn documents, reports, and unstructured text into actionable, searchable data.
+                        Summarization, extraction, and classification powered by AI. Turn documents, reports, and
+                        unstructured text into actionable, searchable data.
                     </p>
                 </div>
 
                 <div class="service-card fade-in">
-                    <h3 class="service-title">Data Pipelines & Cleanup</h3>
+                    <h3 class="service-title">Data Pipelines &amp; Cleanup</h3>
                     <p class="service-description">
-                        Messy spreadsheets to clean databases. We build automated data ingestion, transformation, and migration workflows that bring order to your data.
+                        Messy spreadsheets to clean databases. We build automated data ingestion, transformation,
+                        and migration workflows that bring order to your data.
                     </p>
                 </div>
 
                 <div class="service-card fade-in">
-                    <h3 class="service-title">Custom Dashboards & Reporting</h3>
+                    <h3 class="service-title">Custom Dashboards &amp; Reporting</h3>
                     <p class="service-description">
-                        Program and impact data dashboards, grant reporting automation, and analytics interfaces that help your team make informed decisions.
+                        Program and impact data dashboards, grant reporting automation, and analytics interfaces
+                        that help your team make informed decisions.
                     </p>
                 </div>
 
                 <div class="service-card fade-in">
                     <h3 class="service-title">API Integrations</h3>
                     <p class="service-description">
-                        Connect your nonprofit tools, build intelligent search over organizational knowledge, and automate workflows across systems.
+                        Connect your nonprofit tools, build intelligent search over organizational knowledge,
+                        and automate workflows across systems.
                     </p>
                 </div>
 
                 <div class="service-card fade-in">
                     <h3 class="service-title">Full-Stack Development</h3>
                     <p class="service-description">
-                        End-to-end web application development with clean code, comprehensive testing, and production deployment. From backend architecture to user-facing interfaces.
+                        End-to-end web application development with clean code, comprehensive testing, and
+                        production deployment. From backend architecture to user-facing interfaces.
                     </p>
                 </div>
 
                 <div class="service-card fade-in">
-                    <h3 class="service-title">Technical Consulting & Strategy</h3>
+                    <h3 class="service-title">Technical Consulting &amp; Strategy</h3>
                     <p class="service-description">
-                        Strategic guidance on technical architecture, AI implementation, and system design. Navigate complex technical decisions with expert insight and hands-on experience.
+                        Strategic guidance on technical architecture, AI implementation, and system design.
+                        Navigate complex technical decisions with expert insight and hands-on experience.
                     </p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+
+    <!-- =========================================
+         Contact Section
+         ========================================= -->
+    <section class="contact-section" id="contact">
         <div class="container">
             <div class="contact-content">
                 <h2 class="contact-title">Get In Touch</h2>
                 <p class="contact-description">
-                    Have a data challenge, a process that needs automating, or an idea for how AI could help your organization? Let's talk.
+                    Have a data challenge, a process that needs automating, or an idea for how AI could help
+                    your organization? Let's talk.
                 </p>
-                <a href="https://www.linkedin.com/in/allisondzubak/" target="_blank" rel="noopener noreferrer" class="linkedin-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="linkedin-icon">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <a href="#" data-email-link class="email-button">
+                    <svg class="email-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                     </svg>
-                    Connect on LinkedIn
+                    Contact Us
                 </a>
             </div>
         </div>
     </section>
 
+
+    <!-- =========================================
+         Footer
+         ========================================= -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2026 Katahdin Logic LLC. All rights reserved.</p>
-                <p style="margin-top: 8px;"><a href="https://allisondzubak.com" target="_blank" class="footer-founder">Allison Dzubak, Ph.D. — Founder</a></p>
+                <p>&copy; <span id="year"></span> Katahdin Logic LLC. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+    <!-- =========================================
+         Screenshot Modal
+         ========================================= -->
+    <div class="showcase-modal" id="showcaseModal" onclick="closeShowcaseModal(event)" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+        <div class="showcase-modal-content">
+            <button class="showcase-modal-close" onclick="closeShowcaseModal(event)" aria-label="Close">&times;</button>
+            <img id="showcaseModalImg" src="" alt="">
+        </div>
+    </div>
+
+
+    <!-- =========================================
+         JavaScript
+         ========================================= -->
+    <script>
+        // --- Footer year ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Navbar: shadow on scroll ---
+        const navbar = document.getElementById('site-navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 10);
+        }, { passive: true });
+
+        // --- Mobile nav toggle ---
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        navToggle.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            mobileNav.setAttribute('aria-hidden', !isOpen);
+        });
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                mobileNav.setAttribute('aria-hidden', 'true');
+            });
+        });
+
+        // --- Smooth scroll ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const hash = this.getAttribute('href');
+                if (hash === '#') return;
+                const target = document.querySelector(hash);
+                if (target) {
+                    e.preventDefault();
+                    const navHeight = navbar.offsetHeight;
+                    const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+                    window.scrollTo({ top: targetPos, behavior: 'smooth' });
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card').forEach(card => {
-            observer.observe(card);
         });
+
+        // --- Active nav link on scroll ---
+        const sections = document.querySelectorAll('section[id], main[id]');
+        const desktopLinks = document.querySelectorAll('#desktop-nav a');
+        window.addEventListener('scroll', () => {
+            const navH = navbar.offsetHeight;
+            let current = '';
+            sections.forEach(section => {
+                if (window.pageYOffset >= section.offsetTop - navH - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+            desktopLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        }, { passive: true });
+
+        // --- Email obfuscation ---
+        (function () {
+            const addr = 'allison' + '@' + 'katahdinlogic.com';
+            document.querySelectorAll('a[data-email-link]').forEach(el => {
+                el.href = 'mailto:' + addr;
+            });
+        })();
+
+        // --- Screenshot modal ---
+        function openShowcaseModal(thumb) {
+            const img = thumb.querySelector('.thumb-img-wrap img');
+            document.getElementById('showcaseModalImg').src = img.src;
+            document.getElementById('showcaseModalImg').alt = img.alt;
+            document.getElementById('showcaseModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeShowcaseModal(event) {
+            if (event.target.classList.contains('showcase-modal') ||
+                event.target.classList.contains('showcase-modal-close')) {
+                document.getElementById('showcaseModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('showcaseModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // --- Behind the scenes toggle ---
+        document.querySelectorAll('.behind-scenes-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const panel = btn.closest('.behind-scenes');
+                const isOpen = panel.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen);
+            });
+        });
+
+        // --- Service card scroll animation ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('fade-in');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
     </script>
+
 </body>
 </html>
